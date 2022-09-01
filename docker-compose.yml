@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  api:
+    container_name: api-container
+    build:
+      context: .
+    volumes:
+      - '.:/app'
+      - 'api:/app/node_modules'
+    ports:
+      - '$PORT:$PORT'
+    environment:
+      - PORT=$PORT
+      - DATABASE_URL=$DATABASE_URL
+volumes: 
+  db:
+  api:
